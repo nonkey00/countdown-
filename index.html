@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>countdown</title>
+		<style>
+			.btn-zone{
+				width: 100px;
+				height: 50px;
+				position:relative;
+			}
+			.btn{
+				position: absolute;
+				background: #f00;
+				width: 100%;
+				height: 100%;
+			}
+			.btn-disable .btn{
+				background: #999;
+			}
+			.btn-disable .disable-fade {
+			    display: block;
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    width: 100%;
+			    height: 100%;
+			    background: transparent;
+			    z-index: 1;
+			  }
+		</style>
+	</head>
+	<body>
+		<div class="btn-zone">
+			<div id="btn" class="btn"></div>
+			<div class="disable-fade"></div>	
+		</div>
+		<script src="jquery-1.11.2.js"></script>
+		<script src="countdown.js"></script>
+		<script>
+		$('#btn').click(function() {
+	        new countDown(
+	        {
+	          ele : $("#btn"),
+	          stop_class : "btn-disable"
+	        },
+	        function(){
+	        	console.log("回调");
+	        }
+	        );
+		});
+		</script>
+	</body>
+</html>
